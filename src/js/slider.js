@@ -82,35 +82,29 @@ function initSlider() {
 // Iniciar o slider quando o DOM estiver pronto
 document.addEventListener('DOMContentLoaded', initSlider);
 
+//*************** Swipe no Mobile ****************** */
 
-// Swipe para mobile
+let touchStartX = 0;
+let touchEndtX = 0;
 
-let startX; // Para armazenar a posição inicial do toque
-let isSwiping = false; // Controle para saber se o usuário está arrastando
-
-// Detectar o início do toque
-container.addEventListener('touchstart', (e) => {
-    startX = e.touches[0].clientX; // Pega a posição inicial do toque
-    isSwiping = true; // Sinaliza que o usuário iniciou o toque
-});
-
-// Detectar o movimento do toque
-container.addEventListener('touchmove', (e) => {
-    if (!isSwiping) return; // Não faz nada se o swipe não tiver iniciado
-    let touchX = e.touches[0].clientX; // Pega a posição atual do toque
-    let difference = touchX - startX; // Calcula a diferença de posição
-    if (difference > 50) {
-        // Deslizou para a direita (anterior)
-        slidePrev();
-        isSwiping = false; // Reseta o controle de swipe
-    } else if (difference < -50) {
-        // Deslizou para a esquerda (próximo)
+function VerificarDirecao() {
+    if(touchEndtX < touchStartX){
         slideNext();
-        isSwiping = false; // Reseta o controle de swipe
     }
-});
+    if(touchEndtX > touchStartX){
+        slidePrev();
+    }
+}
 
-// Detectar o fim do toque
-container.addEventListener('touchend', () => {
-    isSwiping = false; // Finaliza o swipe ao levantar o dedo
-});
+var bb = document.getElementsByClassName('slider-image');
+
+for(let i = 0; i < bb.length; i++){
+    bb[i].addEventListener("touchstart", (e) =>{
+        touchStartX = e.changedTouches[0].screenX;
+    });
+
+    bb[i].addEventListener("touchend", (e) =>{
+        touchEndtX = e.changedTouches[0].screenX;
+        VerificarDirecao();
+    });
+}

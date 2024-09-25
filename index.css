@@ -233,9 +233,9 @@ main{
 .slide-container {
   position: relative;
   width: 100%;
-  max-width: 842px; /* Limita a largura máxima a 800px */
-  height:  292px;
-  aspect-ratio: 16 / 9; /* Proporção de largura/altura para manter a tela equilibrada */
+  max-width: 1094px;
+  height:  380px;
+  aspect-ratio: 16 / 9;
   box-shadow: 0 0 8px 2px rgba(0, 0, 0, 0.2);
 }
 
@@ -298,8 +298,8 @@ span.next:hover, span.prev:hover {
 }
 
 .dotsContainer .dot {
-  width: 8px;
-  height: 8px;
+  width: 9px;
+  height: 9px;
   margin: 0px 2px;
   border: 2px solid #bbb;
   border-radius: 50%;

@@ -23,15 +23,13 @@
   color: var(--text);
 }
 
-html {
+html, body {
   scroll-behavior: smooth;
-}
-
-body {
   font-size: .938rem;
   background-color: var(--background);
+  width: 100%;
+  height: 100%;
 }
-
 /*------------------------------------------------------------ Header ---------------------------------------------------------------*/
 
 ul {
@@ -68,6 +66,7 @@ a {
   color: hsl(0, 0%, 100%);
   font-size: 18px;
   font-family: var(--font-padrao);
+  margin-left: 20px;
 }
 
 .nav__close, 
@@ -79,7 +78,7 @@ a {
 }
 
 /* Responsividade para mobile */
-@media screen and (max-width: 1150px) {
+@media screen and (max-width: 750px) {
   .nav__menu {
     position: fixed;
     left: -100%;
@@ -178,6 +177,7 @@ a {
   width: 20px;
   height: 15px;
   filter: brightness(0) invert(0.7);
+  margin-right: 20px;
 }
 
 .exit-logo{
@@ -221,7 +221,7 @@ main{
 /*------------------------------------------------------------ BREAKPOINTS --------------------------------------------------------------------*/
 
 /* For large devices */
-@media screen and (min-width: 1150px) {
+@media screen and (min-width: 750px) {
   .container {
     margin-inline: auto;
   }

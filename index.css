@@ -225,6 +225,7 @@ main{
 /*********** Slider *****************/
 .slider-back{
   margin-top: 80px;
+  margin-bottom: 40px;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -310,6 +311,10 @@ span.next:hover, span.prev:hover {
 
 .dotsContainer .active {
   background-color: #b9b9b9;
+}
+
+.slider-image{
+  cursor: pointer;
 }
 
 /*********** Animações do Slider ***********/
@@ -421,4 +426,19 @@ span.next:hover, span.prev:hover {
     height: 8px;
     margin: 0px 1px;
   }
+}
+
+/*-------------------------------------------------------- Scroll do mouse --------------------------------------------------------------------*/
+
+body::-webkit-scrollbar {
+  width: 7px;               /* width of the entire scrollbar */
+}
+
+body::-webkit-scrollbar-track {
+  background: var(--background);
+}
+
+body::-webkit-scrollbar-thumb {
+  background-color: var(--text);
+  border-radius: 20px;
 }

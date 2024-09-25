@@ -52,7 +52,7 @@ a {
   left: 0;
   backdrop-filter: blur(12px);
   background-color: rgba(7, 7, 7, 0.24);
-  z-index: 1;
+  z-index: 100;
 }
 
 .nav {
@@ -66,7 +66,7 @@ a {
   color: hsl(0, 0%, 100%);
   font-size: 18px;
   font-family: var(--font-padrao);
-  margin-left: 20px;
+  padding-left: 20px;
 }
 
 .nav__close, 
@@ -91,6 +91,10 @@ a {
     flex-direction: column;
     justify-content: space-between;
     transition: left .4s;
+  }
+
+  .nav__logo{
+    padding-left: 0px;
   }
 
   .nav {
@@ -218,9 +222,136 @@ main{
   padding: 0px 20px;
 }
 
-/*------------------------------------------------------------ BREAKPOINTS --------------------------------------------------------------------*/
+/*********** Slider *****************/
+.slider-back{
+  margin-top: 80px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
 
-/* For large devices */
+.slide-container {
+  position: relative;
+  width: 100%;
+  max-width: 842px; /* Limita a largura máxima a 800px */
+  height:  292px;
+  aspect-ratio: 16 / 9; /* Proporção de largura/altura para manter a tela equilibrada */
+  box-shadow: 0 0 8px 2px rgba(0, 0, 0, 0.2);
+}
+
+.slide-container .slides {
+  width: 100%;
+  height: 100%;
+  position: relative;
+  overflow: hidden;
+}
+
+.slide-container .slides img {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  object-fit: cover;
+  border-radius: 10px;
+}
+
+.slide-container .slides img:not(.active) {
+  top: 0;
+  left: -100%;
+}
+
+span.next, span.prev {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  padding: 10px;
+  color: #eee;
+  font-size: 20px;
+  transition: 0.5s;
+  border-radius: 8px;
+  user-select: none;
+  cursor: pointer;
+  z-index: 1;
+}
+
+span.next {
+  right: 10px;
+  background-color: #4f4f4f56;
+}
+
+span.prev {
+  left: 10px;
+  background-color: #4f4f4f56;
+}
+
+span.next:hover, span.prev:hover {
+  background-color: #ede6d6;
+  opacity: 0.8;
+  color: #222;
+}
+
+.dotsContainer {
+  bottom: 5px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 10px;
+}
+
+.dotsContainer .dot {
+  width: 8px;
+  height: 8px;
+  margin: 0px 2px;
+  border: 2px solid #bbb;
+  border-radius: 50%;
+  display: inline-block;
+  cursor: pointer;
+  transition: background-color 0.6s ease;
+}
+
+.dotsContainer .active {
+  background-color: #b9b9b9;
+}
+
+/*********** Animações do Slider ***********/
+@keyframes next1 {
+  from {
+    left: 0%;
+  }
+  to {
+    left: -100%;
+  }
+}
+
+@keyframes next2 {
+  from {
+    left: 100%;
+  }
+  to {
+    left: 0%;
+  }
+}
+
+@keyframes prev1 {
+  from {
+    left: 0%;
+  }
+  to {
+    left: 100%;
+  }
+}
+
+@keyframes prev2 {
+  from {
+    left: -100%;
+  }
+  to {
+    left: 0%;
+  }
+}
+
+/*------------------------------------------------------------ Breakpoints --------------------------------------------------------------------*/
+
+/*********** Header ***********/
 @media screen and (min-width: 750px) {
   .container {
     margin-inline: auto;
@@ -259,3 +390,35 @@ main{
   }
 }
 
+/*********** Slider ***********/
+@media (max-width: 768px) {
+  .slide-container {
+    max-width: 100%;
+    height: auto;
+    aspect-ratio: 16 / 9;
+  }
+
+  span.next, span.prev {
+    padding: 8px;
+    font-size: 18px;
+  }
+
+  .dotsContainer .dot {
+    width: 10px;
+    height: 10px;
+    margin: 0px 1px;
+  }
+}
+
+@media (max-width: 480px) {
+  span.next, span.prev {
+    padding: 6px;
+    font-size: 16px;
+  }
+
+  .dotsContainer .dot {
+    width: 8px;
+    height: 8px;
+    margin: 0px 1px;
+  }
+}

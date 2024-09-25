@@ -62,12 +62,32 @@
 <!--------------------------------------------------------------- Main ----------------------------------------------------------------------->
 
       <main>
-        
+         <div class="slider-back">
+            <div class="slide-container">
+               <div class="slides">
+                  <img src="src/images/01.jpg" class="slider-image active" alt="">
+                  <img src="src/images/02.jpg" class="slider-image" alt="">
+                  <img src="src/images/03.jpg" class="slider-image" alt="">
+                  <img src="src/images/02.jpg" class="slider-image" alt="">
+               </div>
+               <div class="buttons">
+                  <span class="next">&#10095;</span>
+                  <span class="prev">&#10094;</span>
+               </div>
+               <div class="dotsContainer">
+                  <div class="dot active" attr='0' onclick="switchImage(this)"></div>
+                  <div class="dot" attr='1' onclick="switchImage(this)"></div>
+                  <div class="dot" attr='2' onclick="switchImage(this)"></div>
+               </div>
+            </div>
+         </div>
       </main>
+
       
 <!------------------------------------------------------------- Scripts ----------------------------------------------------------------------->
       
    <script src="src/js/navbar.js"></script>
+   <script src="src/js/slider.js"></script>
 
    </body>
 </html>
